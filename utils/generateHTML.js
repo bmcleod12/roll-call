@@ -1,4 +1,5 @@
-
+function generateHTML(answers) {
+return `
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,8 +9,12 @@
     <title>Team Roster</title>
 </head>
 <body>
-    <h1>asdf</h1>
-    <h2>asdf<h2>
-    <h2>asdf<h2>
+    <h1>${answers.memberName}</h1>
+    <h2>${answers.id}<h2>
+    <h2>${answers.email}<h2>
 </body>
 </html>
+`
+}
+
+module.exports = generateHTML;
