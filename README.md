@@ -5,6 +5,14 @@
 ## Description
 This command line application creates a website with information about members of your team.
 
+## Table of Contents
+
+* [Installation](#installation)
+* [Usage](#usage)
+* [Unit Tests](#unit-tests)
+* [User Tests](#user-tests)
+* [License](#license)
+
 ##  Installation
 
 As this is just a class project, it has not been added for public use in the npm registry, so we will install it the long way - downloading the code via zip file.
