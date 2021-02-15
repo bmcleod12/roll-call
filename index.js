@@ -10,6 +10,24 @@ const Employee = require('./lib/employee');
 //   );
 // }
 
+const employeeQuestions = [
+    {
+        type:  'input',
+        name: 'memberName',
+        message: "Enter the team member's name.",
+    },
+    {
+        type:  'input',
+        name: 'id',
+        message: "Enter their id.",
+    },
+    {
+        type:  'input',
+        name: 'email',
+        message: "Enter their email address.",
+    },
+];
+
 // initializes app; when it's initialized, inquirer.prompt iterates through each question in the questions array; .then grabs the htmlContent created in generateHTML.js, and passes that content to the writeToFile function
 function init() {
     const manager = new Employee;

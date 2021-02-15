@@ -21,7 +21,7 @@ return `
 
   <div class="container mx-auto p-3">
     <div class="grid grid-cols-3 gap-4">
-    <h1>${answers.memberName}</h1>
+    <h1>${answers.name}</h1>
     <h2>${answers.id}<h2>
     <h2>${answers.email}<h2>
       <div class="grid-cols-1 bg-blue-900 p-3 rounded divide-y divide-blue-400">
