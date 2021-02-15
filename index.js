@@ -1,40 +1,36 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
 const generateHTML = require('./utils/generateHTML');
-
-const employeeQuestions = [
-    {
-        type:  'input',
-        name: 'memberName',
-        message: "Enter the team member's name.",
-    },
-    {
-        type:  'input',
-        name: 'id',
-        message: "Enter their id.",
-    },
-    {
-        type:  'input',
-        name: 'email',
-        message: "Enter their email address.",
-    },
-];
+const Employee = require('./lib/employee');
 
 // function to write HTML file
-function writeToFile(fileName, htmlContent) {
-    fs.writeFile('./dist/index.html', htmlContent, (err) =>
-    err ? console.log(err) : console.log('Successfully created index.html!')
-  );
-}
+// function writeToFile(fileName, htmlContent) {
+//     fs.writeFile('./dist/index.html', htmlContent, (err) =>
+//     err ? console.log(err) : console.log('Successfully created index.html!')
+//   );
+// }
 
 // initializes app; when it's initialized, inquirer.prompt iterates through each question in the questions array; .then grabs the htmlContent created in generateHTML.js, and passes that content to the writeToFile function
 function init() {
+    const manager = new Employee;
+    manager.getName();
+    manager.getID();
+    manager.getEmail();
     inquirer
-        .prompt(employeeQuestions)
-        .then((answers) => { 
-            const htmlContent = generateHTML(answers);
-            writeToFile('./dist/index.html', htmlContent);
+        .prompt({
+            type: 'list',
+            name: 'nextEmployee',
+            message: 'Which would you like to add next?',
+            choices: [
+                'Engineer',
+                'Intern',
+                'None, all team information has been entered'
+            ]
         })
+        // .then((answers) => { 
+        //     const htmlContent = generateHTML(answers);
+        //     writeToFile('./dist/index.html', htmlContent);
+        // })
 };
 
 // Function call to initialize app
