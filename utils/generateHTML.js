@@ -1,4 +1,4 @@
-function generateHTML(answers) {
+function generateHTML(managerData) {
 return `
 <!DOCTYPE html>
 <html lang="en">
@@ -21,18 +21,15 @@ return `
 
   <div class="container mx-auto p-3">
     <div class="grid grid-cols-3 gap-4">
-    <h1>${answers.name}</h1>
-    <h2>${answers.id}<h2>
-    <h2>${answers.email}<h2>
       <div class="grid-cols-1 bg-blue-900 p-3 rounded divide-y divide-blue-400">
         <div>
-          <h1 class="text-2xl">Brenna McLeod</h1>
+          <h1 class="text-2xl">${managerData.managerName}</h1>
           <h2 class="text-2xl mb-2">Manager <span class="fas fa-user-tie"></span></h2>
         </div>
         <div>
-          <h3 class="mt-3">ID: 132</h3>
-          <h3>Email: <a class="underline" href="mailto:brenna.mcleod94@gmail.com">brenna.mcleod94@gmail.com</a></h3>
-          <h3>Office Number: 990</h3>
+          <h3 class="mt-3">ID: ${managerData.id}</h3>
+          <h3>Email: <a class="underline" href="${managerData.email}">${managerData.email}</a></h3>
+          <h3>Office Number: ${managerData.officeNumber}</h3>
        </div>
       </div>
       <div class="grid-cols-1 bg-pink-800 p-3 rounded divide-y divide-pink-400">

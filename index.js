@@ -1,58 +1,118 @@
+// npm package imports
 const inquirer = require('inquirer');
 const fs = require('fs');
-const generateHTML = require('./utils/generateHTML');
+
+// js class files
 const Employee = require('./lib/employee');
+const Manager = require('./lib/manager');
+const Engineer = require('./lib/engineer');
+const Inter = require('./lib/intern');
+
+// data we need for the app
+const generateHTML = require('./utils/generateHTML');
+const teamRoster = [];
 
 // function to write HTML file
-// function writeToFile(fileName, htmlContent) {
-//     fs.writeFile('./dist/index.html', htmlContent, (err) =>
-//     err ? console.log(err) : console.log('Successfully created index.html!')
-//   );
-// }
+function writeToFile(fileName, htmlContent) {
+    fs.writeFile('./dist/index.html', htmlContent, (err) =>
+    err ? console.log(err) : console.log('Successfully created index.html!')
+  );
+}
 
-const employeeQuestions = [
-    {
-        type:  'input',
-        name: 'memberName',
-        message: "Enter the team member's name.",
-    },
-    {
-        type:  'input',
-        name: 'id',
-        message: "Enter their id.",
-    },
-    {
-        type:  'input',
-        name: 'email',
-        message: "Enter their email address.",
-    },
-];
-
-// initializes app; when it's initialized, inquirer.prompt iterates through each question in the questions array; .then grabs the htmlContent created in generateHTML.js, and passes that content to the writeToFile function
-function init() {
-    const manager = new Employee;
-    manager.getName();
-    manager.getID();
-    manager.getEmail();
+// gathers the manager information
+function managerQuestions() {
     inquirer
-        .prompt({
+    .prompt([
+        {
+            type:  'input',
+            name: 'managerName',
+            message: "Enter the manager's name.",
+        },
+        {
+            type:  'input',
+            name: 'id',
+            message: "Enter the manager's id.",
+        },
+        {
+            type:  'input',
+            name: 'email',
+            message: "Enter the manager's email address.",
+        },
+        {
+            type:  'input',
+            name: 'officeNumber',
+            message: "Enter the manager's office number.",
+        }
+    ])
+    // constructs a new manager
+    .then(managerData => {
+        manager = new Manager(managerData.managerName, managerData.id, managerData.email, managerData.officeNumber);
+        employeeData();
+        // const htmlContent = generateHTML(managerData);
+        // console.log(htmlContent);
+        // writeToFile('./dist/index.html', htmlContent);
+    });
+}
+
+function employeeData() {
+    inquirer
+    .prompt([
+        {
             type: 'list',
-            name: 'nextEmployee',
+            name: 'role',
             message: 'Which would you like to add next?',
             choices: [
                 'Engineer',
                 'Intern',
                 'None, all team information has been entered'
             ]
-        })
-        // .then((answers) => { 
-        //     const htmlContent = generateHTML(answers);
-        //     writeToFile('./dist/index.html', htmlContent);
-        // })
-};
+        },
+        {
+            type: "input",
+            name: "name",
+            message: "Enter the employee's name."
+        },
+        {
+            type: "input",
+            name: "id",
+            message: "Enter the employee's id."
+        },
+        {
+            type: "input",
+            name: "email",
+            message: "Enter the employee's email."
+            
+        },
+        {
+            when: (answers) => answers.role === "Engineer",
+            type: "input",
+            name: "github",
+            message: "Enter the emploees's GitHub username."            
+        },
+        {
+            when: (answers) => answers.role === "Intern",
+            type: "input",
+            name: "school",
+            message: "Enter the employee's school."            
+        },
+    ])
+    .then(employeeData => {
+        console.log(employeeData);
+        if (employeeData.role === "Engineer") {
+            const engineer = new Engineer(employeeData.name, employeeData.id, employeeData.email, employeeData.github);
+            teamRoster.push(engineer);
+        }
+        if (employeeData.employeeRole === "Intern") {
+            const intern = new Intern(employeeData.name, employeeData.id, employeeData.email, employeeData.school);
+            teamRoster.push(intern);
+        }
+        console.log(teamRoster);
+        employeeData();
+    })
+}
 
 // Function call to initialize app
-init();
+managerQuestions();
 
 
 // ## Acceptance Criteria
