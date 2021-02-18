@@ -6,7 +6,7 @@ const fs = require('fs');
 const Employee = require('./lib/employee');
 const Manager = require('./lib/manager');
 const Engineer = require('./lib/engineer');
-const Inter = require('./lib/intern');
+const Intern = require('./lib/intern');
 
 // data we need for the app
 const generateHTML = require('./utils/generateHTML');
@@ -101,13 +101,12 @@ function employeeData() {
         if (employeeData.role === "Engineer") {
             const engineer = new Engineer(employeeData.name, employeeData.id, employeeData.email, employeeData.github);
             teamRoster.push(engineer);
-        }
+        };
         if (employeeData.employeeRole === "Intern") {
             const intern = new Intern(employeeData.name, employeeData.id, employeeData.email, employeeData.school);
             teamRoster.push(intern);
-        }
-        console.log(teamRoster);
-        employeeData();
+        };
+        console.log(teamRoster);    
     })
 }
 
