@@ -10,7 +10,8 @@ const Intern = require('./lib/intern');
 
 // data we need for the app
 const generateHTML = require('./utils/generateHTML');
-const teamRoster = [];
+const engineers = [];
+const interns = [];
 
 // function to write HTML file
 function writeToFile(fileName, htmlContent) {
@@ -47,14 +48,14 @@ function managerQuestions() {
     // constructs a new manager
     .then(managerData => {
         manager = new Manager(managerData.managerName, managerData.id, managerData.email, managerData.officeNumber);
-        employeeData();
+        nextEmployee();
         // const htmlContent = generateHTML(managerData);
         // console.log(htmlContent);
         // writeToFile('./dist/index.html', htmlContent);
     });
 }
 
-function employeeData() {
+function nextEmployee() {
     inquirer
     .prompt([
         {
@@ -66,47 +67,88 @@ function employeeData() {
                 'Intern',
                 'None, all team information has been entered'
             ]
-        },
+        }
+    ])
+    .then(nextEmployee => {
+    switch (nextEmployee.role) {
+        case "Engineer":
+            engineerData();
+            break;
+        case "Intern":
+            internData();
+            break;
+        case "None, all team information has been entered":
+            console.log(teamRoster);    
+            // writeToFile('./dist/index.html', htmlContent);
+    }
+    })
+}
+
+function engineerData() {
+    inquirer
+    .prompt([
         {
             type: "input",
             name: "name",
-            message: "Enter the employee's name."
+            message: "Enter the engineer's name."
         },
         {
             type: "input",
             name: "id",
-            message: "Enter the employee's id."
+            message: "Enter the engineer's id."
         },
         {
             type: "input",
             name: "email",
-            message: "Enter the employee's email."
+            message: "Enter the engineer's email."
             
         },
         {
-            when: (answers) => answers.role === "Engineer",
             type: "input",
             name: "github",
-            message: "Enter the emploees's GitHub username."            
+            message: "Enter the engineer's GitHub username."            
+        }
+    ])
+    .then(engineerData => {
+        console.log(engineerData);
+        const engineer = new Engineer(engineerData.name, engineerData.id, engineerData.email, engineerData.github);
+        engineers.push(engineer);    
+        console.log(engineers);
+        nextEmployee();    
+    })
+}
+
+function internData() {
+    inquirer
+    .prompt([
+        {
+            type: "input",
+            name: "name",
+            message: "Enter the intern's name."
         },
         {
-            when: (answers) => answers.role === "Intern",
+            type: "input",
+            name: "id",
+            message: "Enter the intern's id."
+        },
+        {
+            type: "input",
+            name: "email",
+            message: "Enter the intern's email."
+            
+        },
+        {
             type: "input",
             name: "school",
-            message: "Enter the employee's school."            
+            message: "Enter the intern's school."            
         },
     ])
-    .then(employeeData => {
-        console.log(employeeData);
-        if (employeeData.role === "Engineer") {
-            const engineer = new Engineer(employeeData.name, employeeData.id, employeeData.email, employeeData.github);
-            teamRoster.push(engineer);
-        };
-        if (employeeData.employeeRole === "Intern") {
-            const intern = new Intern(employeeData.name, employeeData.id, employeeData.email, employeeData.school);
-            teamRoster.push(intern);
-        };
-        console.log(teamRoster);    
+    .then(internData => {
+        console.log(internData);
+        const intern = new Intern(internData.name, internData.id, internData.email, internData.school);
+        interns.push(intern);
+        console.log(interns);
+        nextEmployee();    
     })
 }
 
