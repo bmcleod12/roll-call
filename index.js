@@ -3,7 +3,6 @@ const inquirer = require('inquirer');
 const fs = require('fs');
 
 // js class files
-const Employee = require('./lib/employee');
 const Manager = require('./lib/manager');
 const Engineer = require('./lib/engineer');
 const Intern = require('./lib/intern');
@@ -49,9 +48,6 @@ function managerQuestions() {
     .then(managerData => {
         manager = new Manager(managerData.managerName, managerData.id, managerData.email, managerData.officeNumber);
         nextEmployee();
-        // const htmlContent = generateHTML(managerData);
-        // console.log(htmlContent);
-        // writeToFile('./dist/index.html', htmlContent);
     });
 }
 
@@ -78,8 +74,7 @@ function nextEmployee() {
             internData();
             break;
         case "None, all team information has been entered":   
-            const htmlContent = generateHTML(manager, engineers, interns);
-            console.log(htmlContent);    
+            const htmlContent = generateHTML(manager, engineers, interns);   
             writeToFile('./dist/index.html', htmlContent);
     }
     })

@@ -67,8 +67,7 @@ function generateHTML(manager, engineers, interns) {
   </html>`;
   finalHTML.push(internHTML);
   });
-
-  console.log("final HTML: ", finalHTML);
+  
   return (finalHTML.join(''))
 };
 
