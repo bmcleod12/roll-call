@@ -77,9 +77,10 @@ function nextEmployee() {
         case "Intern":
             internData();
             break;
-        case "None, all team information has been entered":
-            console.log(teamRoster);    
-            // writeToFile('./dist/index.html', htmlContent);
+        case "None, all team information has been entered":   
+            const htmlContent = generateHTML(manager, engineers, interns);
+            console.log(htmlContent);    
+            writeToFile('./dist/index.html', htmlContent);
     }
     })
 }
@@ -105,15 +106,13 @@ function engineerData() {
         },
         {
             type: "input",
-            name: "github",
+            name: "gitHub",
             message: "Enter the engineer's GitHub username."            
         }
     ])
     .then(engineerData => {
-        console.log(engineerData);
-        const engineer = new Engineer(engineerData.name, engineerData.id, engineerData.email, engineerData.github);
+        const engineer = new Engineer(engineerData.name, engineerData.id, engineerData.email, engineerData.gitHub);
         engineers.push(engineer);    
-        console.log(engineers);
         nextEmployee();    
     })
 }
@@ -144,10 +143,8 @@ function internData() {
         },
     ])
     .then(internData => {
-        console.log(internData);
         const intern = new Intern(internData.name, internData.id, internData.email, internData.school);
         interns.push(intern);
-        console.log(interns);
         nextEmployee();    
     })
 }
