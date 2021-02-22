@@ -1,7 +1,6 @@
 const Employee = require("../lib/employee");
 const Engineer = require("../lib/engineer");
 
-// parent describe block describes the file name or the main function that this should test
 describe("Engineer", () => {
     describe("New Engineer", () => {
         it("Is an extension of the Employee class", () => {

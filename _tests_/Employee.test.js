@@ -1,6 +1,5 @@
 const Employee = require("../lib/employee");
 
-// parent describe block describes the file name or the main function that this should test
 describe("Employee", () => {
     describe("New Employee", () => {
         it("Returns an object containing name, id, and email properties when the 'new' keyword is called", () => {
