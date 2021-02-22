@@ -1,25 +1,12 @@
+const Employee = require("../lib/employee");
 const Manager = require("../lib/manager");
 
 // parent describe block describes the file name or the main function that this should test
 describe("Manager", () => {
-    describe("Initialization", () => {
+    describe("New Manager", () => {
         it("should return an object containing office number property when the 'new' keyword is called", () => {
             const obj = new Manager;
             expect("officeNumber" in obj).toEqual(true);
         });
     });
-
-    // describe("something2", () => {
-    //     it("should do something 2", () => {
-    //         const obj = new Employee;
-    //         expect(obj instanceof Employee).toEqual(true);
-    //     });
-    // });
-
-    // describe("something3", () => {
-    //     it("should do something 3", () => {
-    //         const obj = new Employee;
-    //         expect(obj instanceof Employee).toEqual(true);
-    //     });
-    // });
 });
