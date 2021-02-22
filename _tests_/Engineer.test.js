@@ -53,11 +53,19 @@ describe("Engineer", () => {
         });
     });
 
+    describe("getGithub function", () => {
+        it("Returns GitHub username after Engineer object has been created", () => {
+            const obj = new Engineer("Brenna", 12345, "brenna.mcleod94@gmail.com", "bmcleod12");
+    
+            expect(obj.getGithub()).toEqual("bmcleod12");
+            });
+        });
+
     describe("getRole function", () => {
     it("Returns 'Engineer' after Engineer object has been created", () => {
-        const emp = new Engineer();
+        const obj = new Engineer();
 
-        expect(emp.getRole()).toEqual("Engineer");
+        expect(obj.getRole()).toEqual("Engineer");
         });
     });
 });
