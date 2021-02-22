@@ -54,7 +54,7 @@ describe("Engineer", () => {
     });
 
     describe("getGithub function", () => {
-        it("Returns GitHub username after Engineer object has been created", () => {
+        it("Returns GitHub username after it is passed to the Engineer object", () => {
             const obj = new Engineer("Brenna", 12345, "brenna.mcleod94@gmail.com", "bmcleod12");
     
             expect(obj.getGithub()).toEqual("bmcleod12");
