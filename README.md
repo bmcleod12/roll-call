@@ -73,6 +73,16 @@ Node.js: https://nodejs.org/en/
 
 <img alt="Open team roster website" src="images/start-chrome.PNG"/>
 
+8. The final Team Roster website will appear with cards for each team member.
+
+<img alt="Team Roster" src="images/team-roster-basic.PNG"/>
+
+
+Here is a look at a roster with more than one engineer:
+
+<img alt="Team Roster with two Engineers" src="images/team-roster-multiple-engineers.PNG"/>
+
+
 
 ## Unit Tests
 
