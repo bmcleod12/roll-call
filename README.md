@@ -93,7 +93,7 @@ To run the unit test, change directories into the "_tests_" folder and run "npm 
 
 Thirty tests should run spanning those four classes and all should pass.
 
-<img alt="Run NPM test from command line" src="images/run-npm-test.PNG"/>
+<img alt="Run NPM test from command line" src="images/passed-test.PNG"/>
 
 
 ## User Tests
