@@ -28,52 +28,51 @@ Node.js: https://nodejs.org/en/
 
 1. Click the Code button at the top right of this repository, then click Download ZIP.
 
-<!-- <img alt="Download ZIP" src="assets/download_zip.PNG"/> -->
-
+<img alt="Download ZIP" src="images/download-zip.PNG"/>
 
 2. Open the zip folder location once it completes downloading.
 
-
+<img alt="Show in Folder" src="images/show-folder.PNG"/>
 
 3. Right click on the zip file and select "Extract All..."
 
-
+<img alt="Extract All" src="images/extract-all.PNG"/>
 
 4. Browse for the location where you would like to extract the files.
 
-
-
-
-5. After the zip is extracted, right click on the folder and select "Open with Code"
-
-
-
-6. In Visual Studio, right click in the parent folder and select "Open in Integrated Terminal."
-
-
-
-
-7. In the Integrated Terminal, enter "npm i" and hit Enter. This will install both fs and inquirer from the npm registry.
-
-
-
-
-8. Upon completion, thre will be a new node_modules folder in your Visual Studio, giving you what you need to run the program.
+<img alt="Extract to location" src="images/extract.PNG"/>
 
 
 ## Usage
 
-To use the application, with Integrated Terminal still open in your VS Code:
+1. After the zip is extracted, open Git Bash (or similar terminal) and navigate to the location where you extracted the files, then navigate to the roll-call-main folder.
 
-1. Enter "node index.js"
+<img alt="Change Directories" src="images/cd-demo.PNG"/>
 
+2. Run "npm i" to install the requisite libraries.
 
+<img alt="Install npm packages" src="images/npm-i.PNG"/>
 
-2. A series of questions will be asked, prompting you to provide information for each member of your team. After answering each question and assuming nothing goes wrong, you will be presented with a message reading, "Successfully created index.html!"
+3. Enter "node index.js" to start the program. You will be presented with questions prompting for the team manager's information. After answering those questions, you will be presented with a menu giving you the option to add an engineer or an intern to the team.
 
+<img alt="Answer Manager questions" src="images/manager-data.PNG"/>
 
+4. You will be presented with questions about the engineer and then will be returned to the menu.
 
-3. The html file will be created...
+<img alt="Answer Engineer questions" src="images/engineer-data.PNG"/>
+
+5. If you select to provide intern information, you will answer questions about the intern and then be returned to the menu. When you have finished building the team, select the "None, all team information has been entered" option.
+
+<img alt="Answer Intern questions" src="images/intern-data.PNG"/>
+
+6. Upon completion, you will be presented with a message stating the HTML file has been created based on the information you provided.
+
+<img alt="Success message" src="images/successful-creation.PNG"/>
+
+7. Change directories into the "dist" folder and run "start chrome index.html" to open the new website in Chrome.
+
+<img alt="Open team roster website" src="images/start-chrome.PNG"/>
+
 
 ## Unit Tests
 
