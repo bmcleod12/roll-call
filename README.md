@@ -19,12 +19,13 @@ As this is just a class project, it has not been added for public use in the npm
 
 A walkthrough video for these installation and usage instructions can be found here: 
 
-Please note these installation instructions assume you already have Visual Studio Code installed, as well as Node.js.
+Please note these installation instructions assume you already have Visual Studio Code, Node.js, and Git Bash (or similar alternative).
 
 Visual Studio Code: https://code.visualstudio.com/ 
 
 Node.js: https://nodejs.org/en/
 
+Git Bash: https://git-scm.com/downloads
 
 1. Click the Code button at the top right of this repository, then click Download ZIP.
 
@@ -77,16 +78,29 @@ Node.js: https://nodejs.org/en/
 
 <img alt="Team Roster" src="images/team-roster-basic.PNG"/>
 
-
 Here is a look at a roster with more than one engineer:
 
 <img alt="Team Roster with two Engineers" src="images/team-roster-multiple-engineers.PNG"/>
 
 
-
 ## Unit Tests
 
+Unit tests have been written for each Class available in this project: Employee, Manager, Engineer, and Intern.
+
+To run the unit test, change directories into the "_tests_" folder and run "npm run test".
+
+<img alt="Run NPM test from command line" src="images/run-npm-test.PNG"/>
+
+Thirty tests should run spanning those four classes and all should pass.
+
+<img alt="Run NPM test from command line" src="images/run-npm-test.PNG"/>
+
+
 ## User Tests
+
+Aside from running the unit tests on your own machine, you can try adding several engineers and interns to the roster to confirm they are formatted appropriately.
+
+You can also resize the browser to confirm the page is responsive.
 
 
 ## License
