@@ -17,7 +17,7 @@ This command line application creates a website with information about members o
 
 As this is just a class project, it has not been added for public use in the npm registry, so we will install it the long way - downloading the code via zip file.
 
-A walkthrough video for these installation and usage instructions can be found here: 
+A walkthrough video for these installation and usage instructions can be found here: https://drive.google.com/file/d/1ILNXoNG-uJkvIwSdeissq-20Gawb-PcQ/view?usp=sharing
 
 Please note these installation instructions assume you already have Visual Studio Code, Node.js, and Git Bash (or similar alternative).
 
